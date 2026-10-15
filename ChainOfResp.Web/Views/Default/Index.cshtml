@@ -1,0 +1,32 @@
+﻿@model ChainOfResp.Web_.Models.CustomerProcessViewModel
+
+@{
+    ViewData["Title"] = "Para Çekme";
+}
+
+<h3>Para Çekme Talebi</h3>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">
+        @TempData["Message"]
+    </div>
+}
+
+<form asp-controller="Default" asp-action="Index" method="post">
+
+    <label>Müşteri Ad Soyad</label>
+    <input type="text" asp-for="FullName" class="form-control" required />
+
+    <br />
+
+    <label>Çekilecek Tutar</label>
+    <input type="number" asp-for="Amount" class="form-control" required />
+
+    <br />
+
+    <button type="submit" class="btn btn-dark">
+        Para Çek
+    </button>
+
+</form>
